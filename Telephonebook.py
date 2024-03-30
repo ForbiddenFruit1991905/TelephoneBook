@@ -78,22 +78,33 @@ def add_contact():
 # Функция для редактирования записи контакта
 def edit_contact():
     contacts = read_contacts()
-    id = input("Enter id: ")
-    if id in contacts:
-        new_lastname = input("Введите фамилию: ")
-        contacts['lastname'] = new_lastname
-        new_firstname = input("Введите имя: ")
-        contacts['firstname'] = new_firstname
-        new_middlename = input("Введите отчество: ")
-        contacts['middlename'] = new_middlename
-        new_birthday = input("Введите день рождения в формате дд/мм/гггг: ")
-        new_phonenumber = input("Введите номер телефона: ")
-        contacts["phonenumber"] = new_phonenumber 
-        contacts['birthday'] = new_birthday
-        new_email = input(" Введите email: ")
-        contacts['email'] = new_email
-        contact = {'lastname': new_lastname, 'firstname': new_firstname, 'middlename': new_middlename, 'phonenumber': new_phonenumber, 'birthday': new_birthday, 'email': new_email}
-        contacts[id] = contact
+    contact = input("Enter id: ")
+    if contact in contacts:
+        edit_choice = int(input("Enter number of key choice: "))
+        if edit_choice == 1:
+                new_lastname = input("Введите фамилию: ")   
+                contacts[contact]['lastname'] = new_lastname
+                print(contacts[contact])           
+        elif edit_choice == 2:
+                new_firstname = input("Введите имя: ")
+                contacts[contact]['firstname'] = new_firstname
+                print(contacts[contact])
+        elif edit_choice == 3:
+                new_middlename = input("Введите отчество: ")
+                contacts[contact]['middlename'] = new_middlename
+                print(contacts[contact])
+        elif edit_choice == 4:
+                new_birthday = input("Введите день рождения в формате дд/мм/гггг: ")
+                contacts[contact]['birthday'] = new_birthday
+                print(contacts[contact])
+        elif edit_choice == 5:
+                new_phonenumber = input("Введите номер телефона: ")
+                contacts[contact]['phonenumber'] = new_phonenumber 
+                print(contacts[contact])
+        elif edit_choice == 6:
+                new_email = input(" Введите email: ")
+                contacts[contact]['email'] = new_email
+                print(contacts[contact])
         save_contacts(contacts)
         print("Запись контакта скорректирована.")
         return
